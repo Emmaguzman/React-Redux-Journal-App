@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
-import { setError } from "../../actions/ui";
 import { useForm } from "../../hooks/useForm";
 export const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -11,10 +10,8 @@ export const LoginScreen = () => {
     password: "123456",
   });
 
-  const state = useSelector((state) => state);
-  const {
-    ui: {loading}
-  } = state;
+  const {loading} = useSelector((state) => state.ui);
+
 
   const { email, password } = values;
   const handleLogin = (e) => {
@@ -25,20 +22,7 @@ export const LoginScreen = () => {
   const handleGoogleLogin = () => {
     dispatch(startGoogleLogin());
   };
-  const isValidate = (email, password) => {
-    console.log(email,password)
-    if (email===undefined) {
-      console.log('bad email')
-      dispatch(setError("El email es necesario"));
-      return false;
-    } else if (password.trim <= 5) {
-      console.log('bad pass')
-      dispatch(setError("El password no es valido"));
-      return false;
-    }
-
-    return true;
-  };
+ 
   return (
     <>
       <h3 className="auth__title">Login</h3>
