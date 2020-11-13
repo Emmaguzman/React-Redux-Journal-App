@@ -1,7 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
+import { setError } from "../../actions/ui";
 import { useForm } from "../../hooks/useForm";
 export const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -10,16 +11,34 @@ export const LoginScreen = () => {
     password: "123456",
   });
 
+  const state = useSelector((state) => state);
+  const {
+    ui: {loading}
+  } = state;
+
   const { email, password } = values;
   const handleLogin = (e) => {
-    e.preventDefault();
-    dispatch(startLoginEmailPassword(email, password));
-    //console.log(email, password);
+    e.preventDefault();    
+    dispatch(startLoginEmailPassword(email, password));    
     reset();
   };
-  const handleGoogleLogin=()=>{
+  const handleGoogleLogin = () => {
     dispatch(startGoogleLogin());
-  }
+  };
+  const isValidate = (email, password) => {
+    console.log(email,password)
+    if (email===undefined) {
+      console.log('bad email')
+      dispatch(setError("El email es necesario"));
+      return false;
+    } else if (password.trim <= 5) {
+      console.log('bad pass')
+      dispatch(setError("El password no es valido"));
+      return false;
+    }
+
+    return true;
+  };
   return (
     <>
       <h3 className="auth__title">Login</h3>
@@ -30,7 +49,7 @@ export const LoginScreen = () => {
           type="text"
           placeholder="Email"
           name="email"
-          values={email}
+          value={email}
           onChange={handleInputChange}
         />
         <input
@@ -42,15 +61,14 @@ export const LoginScreen = () => {
           value={password}
           onChange={handleInputChange}
         />
-        <button className="btn btn-primary btn-block" type="submit">
+
+        <button disabled={loading} className="btn btn-primary btn-block" type="submit">
           Login
         </button>
         <hr />
         <div className="auth__social-networks">
           <p>Login with social networks</p>
-          <div className="google-btn"
-                onClick={handleGoogleLogin}
-          >
+          <div className="google-btn" onClick={handleGoogleLogin}>
             <div className="google-icon-wrapper">
               <img
                 className="google-icon"

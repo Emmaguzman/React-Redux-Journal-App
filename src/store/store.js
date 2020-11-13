@@ -1,6 +1,7 @@
-import { createStore, combineReducers, applyMiddleware,compose} from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { authReducer } from "../reducers/authReducer";
 import thunk from "redux-thunk";
+import { uiReducer } from "../reducers/uiReducer";
 
 //Para usar redux y los midelwares
 const composeEnhancers =
@@ -10,6 +11,7 @@ const composeEnhancers =
 
 const reducers = combineReducers({
   auth: authReducer,
+  ui: uiReducer,
 });
 
 export const store = createStore(
