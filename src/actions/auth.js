@@ -1,6 +1,8 @@
 import { types } from "../types/types";
 import { firebase, googleAuthProvider } from "../firebase/firebase-config";
 import { FinishLoading, StartLoading } from "./ui";
+import Swal from "sweetalert2";
+
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
@@ -13,12 +15,11 @@ export const startLoginEmailPassword = (email, password) => {
         dispatch(FinishLoading());
       })
       .catch((err) => {
-        console.log(err);
         dispatch(FinishLoading());
+        Swal.fire('Error',err.message, 'error')
       });
   };
 };
-
 export const startRegisterWithEmailPasswordName = (email, password, name) => {
   return (dispatch) => {
     firebase
@@ -29,11 +30,10 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
         dispatch(login(user.uid, user.displayName));
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire('Error',err.message, 'error')
       });
   };
 };
-
 export const startGoogleLogin = () => {
   return (dispatch) => {
     firebase
@@ -44,7 +44,6 @@ export const startGoogleLogin = () => {
       });
   };
 };
-
 export const login = (uid, displayName) => ({
   type: types.login,
   payload: {
