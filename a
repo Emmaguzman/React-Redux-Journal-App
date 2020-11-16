@@ -1,0 +1,47 @@
+[33mcommit 57482c1ad1c5a6fa44e96f089c99002fdb75307d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Emmanuel Guzman <emmanuel-a-guzman@hotmail.com>
+Date:   Sat Nov 14 21:06:54 2020 -0300
+
+    Terminado tareas por usuario-get-tareas-edicion de tarea
+
+[33mcommit 022770573084fc005e533141e0fc69cd5c36f10f[m
+Author: Emmanuel Guzman <emmanuel-a-guzman@hotmail.com>
+Date:   Fri Nov 13 20:11:48 2020 -0300
+
+    Rutas publicas y privadas terminado
+
+[33mcommit f377487b529990c65a11d3cd3ab6b0eb3168b8e7[m
+Author: Emmanuel Guzman <emmanuel-a-guzman@hotmail.com>
+Date:   Fri Nov 13 19:59:13 2020 -0300
+
+    logout terminado
+
+[33mcommit b4392bbe4030b0437beb9a9a0ae5b250e78c34fc[m
+Author: Emmanuel Guzman <emmanuel-a-guzman@hotmail.com>
+Date:   Fri Nov 13 19:23:07 2020 -0300
+
+    registrar en firebase-login loading
+
+[33mcommit f65b0db83c8710b74dbf56c6a53a5a0460ff0495[m
+Author: Emmanuel Guzman <emmanuel-a-guzman@hotmail.com>
+Date:   Fri Nov 13 03:08:44 2020 -0300
+
+    configurado firestore y login por google
+
+[33mcommit 313084cde08b8562e378f52f9f4c98aba1223618[m
+Author: Emmanuel Guzman <emmanuel-a-guzman@hotmail.com>
+Date:   Thu Nov 12 19:55:46 2020 -0300
+
+    Redux -store- Login - Logout(reducer) types
+
+[33mcommit f368aac25a447029f29bc70a94d2923a5707300f[m
+Author: Emmanuel Guzman <emmanuel-a-guzman@hotmail.com>
+Date:   Thu Nov 12 19:50:05 2020 -0300
+
+    Terminado el esqueleto usando sass
+
+[33mcommit 64309cea83ae9baaa4cdc5c2d1051578ff410a23[m
+Author: Emmanuel Guzman <emmanuel-a-guzman@hotmail.com>
+Date:   Wed Nov 11 18:19:27 2020 -0300
+
+    Initialize project using Create React App
